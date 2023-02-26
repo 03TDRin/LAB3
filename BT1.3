@@ -1,0 +1,81 @@
+public class Fraction {
+  private int tuso;
+  private int mauso;
+  public Fraction(){
+    tuso=0;
+    mauso=1;
+    }
+  public Fraction (int tuso, int mauso){
+    if(mauso==0){
+      System.out.println("Mau so khong hop le!");
+      tuso=0;
+      mauso=1;
+      }
+     else{
+         this.tuso=tuso;
+         this.mauso=mauso;
+         }
+     }
+  public void enterFrac(Scanner sc){
+    int ts, ms;
+    do{
+      System.out.prin("\nhap vao tu so : ");
+      ts=sc.next.Int();
+      System.out.print("\Nhap vao mau so : ");
+      ms=sc.next.Int();
+      if(ms==0){
+         system.out.println("Vui long nhap lai!");
+         }
+       }while(ms==0);
+       tuso=ts;
+       mauso=ms;
+     }
+   public void display(){
+     if(tuso*mauso<0){
+     System.out.println("-"+Math.abs(tuso)+"/"+Math.abs(mauso));
+     }
+     else{
+       System.out.println(Math.abs(tuso)+"/"+Math.abs(mauso));
+       }
+     }
+   public Fraction add(Fraction ps2){
+      int ts=tuso*ps2.mauso + ps2.tuso*mauso;
+      int ms=mauso*ps2.mauso;
+      return new Fraction(ts, ms);
+      }
+   public Fraction sub(Fraction ps2){
+      int ts=tuso*ps2.mauso - ps2.tuso*mauso;
+      int ms=mauso*ps2.mauso;
+      return new Fraction(ts, ms);
+      }
+   public Fraction mul(Fraction ps2){
+      int ts=tuso*ps2.tuso;
+      int ms=mauso*ps2.mauso;
+      return new Fraction(ts, ms);
+      }
+   public void inverse(){
+      int tg=tuso;
+      tuso=mauso;
+      mauso=tg;
+      }
+   public Fraction div(Fraction ps2){
+      int tg=ps2.tuso;
+      ps2.tuso=ps2.mauso;
+      ps2.mauso=tg;
+      int ts=tuso*ps2.tuso;
+      int ms=mauso*ps2.mauso;
+      return new Fraction(ts, ms);
+      }
+   public void reduce(){
+      int a=tuso;
+      int b=mauso;
+      int r=a%b;
+      while(r!b=0){
+         a=b;
+         b=r;
+         r=a%b;
+         }
+      tuso/=b;
+      mauso/=b;
+      }
+}
